@@ -5,7 +5,7 @@ import { space, SpaceProps } from 'styled-system';
 import { SizeVariant } from '../../lib/theme/variants';
 
 type PropTypes = React.HTMLProps<HTMLImageElement> & SpaceProps & {
-    size?: SizeVariant;
+    profileSize?: SizeVariant;
 }
 
 const size = {
@@ -28,13 +28,13 @@ const size = {
 };
 
 const ProfileImage = styled.img<PropTypes>`
-    border-radius: 100%;
-    ${props => size[props.size]};
-    ${space};
+  border-radius: 100%;
+  ${props => props.profileSize && size[props.profileSize]};
+  ${space};
 `;
 
 ProfileImage.defaultProps = {
-    size: SizeVariant.Regular
-}
+  profileSize: SizeVariant.Regular
+};
 
 export default ProfileImage;

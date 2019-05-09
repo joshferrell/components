@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/main.7fd28baaa52f045bd31e.bundle.js",
+    "main.js.map": "/main.7fd28baaa52f045bd31e.bundle.js.map",
+    "runtime~main.js": "/runtime~main.7fd28baaa52f045bd31e.bundle.js",
+    "runtime~main.js.map": "/runtime~main.7fd28baaa52f045bd31e.bundle.js.map",
+    "vendors~main.js": "/vendors~main.7fd28baaa52f045bd31e.bundle.js",
+    "vendors~main.js.map": "/vendors~main.7fd28baaa52f045bd31e.bundle.js.map",
+    "iframe.html": "/iframe.html",
+    "precache-manifest.90fd9db270f3073e1a2092713895bc08.js": "/precache-manifest.90fd9db270f3073e1a2092713895bc08.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/sprite.svg": "/static/media/sprite.76dd58dd.svg"
+  }
+}

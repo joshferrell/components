@@ -72,18 +72,23 @@ const BaseButton = styled.div<ButtonProps>`
     ${baseStyle};
 `;
 
+// @ts-ignore
 const Button: React.FC<PropTypes> = React.forwardRef(({ buttonType, ...props }, ref) => {
     const type = isLink(props) ? 'a' : 'button';
 
     switch (buttonType) {
-        case ButtonType.Outline:
-            return <BaseOutline {...props} ref={ref} border as={type} />;
-        case ButtonType.NoBorder:
-            return <BaseOutline {...props} ref={ref} border={false} as={type} />;
-        case ButtonType.Link:
-            return <BaseLink {...props} ref={ref} as={type} />;
-        default:
-            return <BaseButton {...props} ref={ref} as={type} />;
+      case ButtonType.Outline:
+        // @ts-ignore
+        return <BaseOutline {...props} ref={ref} border as={type} />;
+      case ButtonType.NoBorder:
+        // @ts-ignore
+        return <BaseOutline {...props} ref={ref} border={false} as={type} />;
+      case ButtonType.Link:
+        // @ts-ignore
+        return <BaseLink {...props} ref={ref} as={type} />;
+      default:
+      // @ts-ignore
+        return <BaseButton {...props} ref={ref} as={type} />;
     } 
 });
 

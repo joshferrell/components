@@ -68,14 +68,17 @@ const BaseOutline = styled.div<PropTypes>`
     `};
 `;
 
+// @ts-ignore
 const Chip: React.FC<PropTypes> = React.forwardRef(({ chipType, ...props }, ref) => {
     const type = isButton(props) ? 'button' : 'div';
 
     switch (chipType) {
-        case ChipTypes.Outline:
-            return <BaseOutline {...props} ref={ref} as={type} />;
-        default:
-            return <BaseFill {...props} ref={ref} as={type} />;
+      case ChipTypes.Outline:
+        // @ts-ignore
+        return <BaseOutline {...props} ref={ref} as={type} />;
+      default:
+        // @ts-ignore
+        return <BaseFill {...props} ref={ref} as={type} />;
     }
 })
 
