@@ -6,3 +6,5 @@ export const fonts = {
     sans: `Poppins, ${systemFonts}`,
     mono: '"Space Mono", monospace'
 };
+
+export const fontSizes = [ 12, 14, 16, 20, 24, 32, 48 ]

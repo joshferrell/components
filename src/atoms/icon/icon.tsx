@@ -1,12 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { height, width, color, space, SpaceProps, ColorProps, HeightProps, WidthProps } from 'styled-system';
+import { height, width, color, space } from 'styled-system';
+
+import { IconSize, SVGProps, IconProps } from '../../lib/atoms/icon';
 
 const sprite = require('./sprite.svg');
-
-type SVGProps = SpaceProps & ColorProps & HeightProps & WidthProps & {
-    rotate?: number;
-}
 
 const SVGWrapper = styled.svg<SVGProps>`
     ${width};
@@ -17,14 +15,22 @@ const SVGWrapper = styled.svg<SVGProps>`
     rotate: ${props => props.rotate || 0};
 `;
 
-const Icon = ({ type, size, rotate, color }) => {
+const Icon = ({ type, size, title, ...props }: IconProps) => {
     const url = `${sprite}#${type}`;
 
     return (
-        <SVGWrapper width={size} height={size} rotate={rotate} color={color}>
+        // @ts-ignore
+        <SVGWrapper width={size} height={size} {...props}>
+            {title && (
+                <title>{title}</title>
+            )}
             <use xlinkHref={url} />
         </SVGWrapper>
     );
+};
+
+Icon.defaultProps = {
+    size: IconSize.sm
 }
 
 export default Icon;
