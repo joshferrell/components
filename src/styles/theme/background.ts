@@ -15,7 +15,7 @@ const getSolidStyleHover = (value: ColorType) => ({
         backgroundColor: colors[value].l6
     },
     '&:focus': {
-        boxShadow: `0px 0px 0px 3px ${colors[value].l3}`,
+        boxShadow: `0px 0px 0px 1px ${colors[value].l4}`,
         outline: 'none',
     }
 });

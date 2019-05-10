@@ -24,8 +24,8 @@ const Box = styled.div<SpaceProps>`
 
 const UserTile: React.FC<PropTypes> = ({ name, chipType, imageSrc, children, variant, ...rest }) => (
     <Box {...rest}>
-        <ProfileImage src={imageSrc} alt={name} mr={-22} style={{ zIndex: 1, position: 'relative' }} />
-        <Chip chipType={chipType} pl="32px !important" variant={variant} size={SizeVariant.Large}>{name}{children && children}</Chip>
+        <ProfileImage src={imageSrc} alt={name} mr={-31} style={{ zIndex: 1, position: 'relative' }} />
+        <Chip chipType={chipType} pl="40px !important" variant={variant} size={SizeVariant.Large}>{name}{children && children}</Chip>
     </Box>
 );
 
