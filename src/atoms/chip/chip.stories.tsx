@@ -3,8 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { SizeVariant, BackgroundVariant } from '../../lib/theme/variants';
-import { ChipTypes } from '../../lib/atoms/chip';
+import { SizeVariant, BackgroundVariant, BoxVariant } from '../../lib/theme/variants';
 import { IconSize, IconTypes } from '../../lib/atoms/icon';
 import Chip from './chip';
 import Icon from '../icon';
@@ -31,27 +30,27 @@ storiesOf('Atoms/Chip', module)
         <div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Primary}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Primary} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Primary} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Secondary}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Secondary} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Secondary} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Tertiary}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Tertiary} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Tertiary} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Warning}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Warning} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Warning} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Success}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Success} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Success} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
             <div>
                 <Chip m={2} variant={BackgroundVariant.Danger}>Primary Filled</Chip>
-                <Chip m={2} variant={BackgroundVariant.Danger} chipType={ChipTypes.Outline}>Primary Outline</Chip>
+                <Chip m={2} variant={BackgroundVariant.Danger} boxType={BoxVariant.Outline}>Primary Outline</Chip>
             </div>
         </div>
     ))

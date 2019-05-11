@@ -13,3 +13,8 @@ export enum SizeVariant {
     Large = 'large',
     ExtraLarge = 'extra-large'
 };
+
+export enum BoxVariant {
+    Outline = 'outline',
+    Filled = 'filled'
+};

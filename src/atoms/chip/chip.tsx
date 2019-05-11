@@ -2,15 +2,14 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 import { space, variant, SpaceProps } from 'styled-system';
 
-import { BackgroundVariant, SizeVariant } from '../../lib/theme/variants';
+import { BackgroundVariant, SizeVariant, BoxVariant } from '../../lib/theme/variants';
 import { isButton } from '../../lib/atoms/button';
-import { ChipTypes } from '../../lib/atoms/chip';
 
 type PropTypes = SpaceProps & {
     size?: SizeVariant;
     variant?: BackgroundVariant;
     onClick?: () => void;
-    chipType?: ChipTypes;
+    boxType?: BoxVariant;
     disabled?: boolean;
 }
 
@@ -73,7 +72,7 @@ const Chip: React.FC<PropTypes> = React.forwardRef(({ chipType, ...props }, ref)
     const type = isButton(props) ? 'button' : 'div';
 
     switch (chipType) {
-      case ChipTypes.Outline:
+      case BoxVariant.Outline:
         // @ts-ignore
         return <BaseOutline {...props} ref={ref} as={type} />;
       default:
@@ -85,7 +84,7 @@ const Chip: React.FC<PropTypes> = React.forwardRef(({ chipType, ...props }, ref)
 Chip.defaultProps = {
     variant: BackgroundVariant.Secondary,
     size: SizeVariant.Regular,
-    chipType: ChipTypes.Filled,
+    boxType: BoxVariant.Filled,
     pl: 2,
     pr: 2
 }

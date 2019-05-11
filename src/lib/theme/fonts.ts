@@ -1,1 +1,1 @@
-export type FontTypes = 'sans' | 'mono';
+export type FontTypes = 'primary' | 'mono';

@@ -97,7 +97,7 @@ Button.defaultProps = {
     buttonSize: SizeVariant.Regular,
     variant: BackgroundVariant.Primary,
     buttonType: ButtonType.Filled,
-    fontFamily: 'sans'
+    fontFamily: 'primary'
 }
 
 export default Button;

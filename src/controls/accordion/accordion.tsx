@@ -4,8 +4,13 @@ type State = {
     openIndexes: Array<number>;
 }
 
+interface RenderChild {
+    (data: { openIndexes: Array<number>, handleItemClick: (index: number) => void }): React.ReactNode;
+}
+
 type PropTypes = {
     defaultIndexes?: Array<number>;
+    children: RenderChild;
 }
 
 class Accordion extends React.Component<PropTypes, State> {
