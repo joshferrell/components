@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { space, variant, width, display, boxShadow, BoxShadowProps, SpaceProps, WidthProps, DisplayProps } from 'styled-system';
+import { space, variant, width, display, borderRadius, boxShadow, BoxShadowProps, BorderRadiusProps, SpaceProps, WidthProps, DisplayProps } from 'styled-system';
 
 import { hoverShadow } from '../../styles/utility';
 import { BackgroundVariant, BoxVariant } from '../../lib/theme/variants';
 
-type PropTypes = SpaceProps & DisplayProps & WidthProps & BoxShadowProps & {
+type PropTypes = SpaceProps & DisplayProps & WidthProps & BoxShadowProps & BorderRadiusProps & {
     variant?: BackgroundVariant;
     onClick?: () => void;
     boxType?: BoxVariant;
@@ -37,8 +37,7 @@ const hoverStyle = css<PropTypes>`
 `;
 
 const baseStyle = css`
-    border-radius: 4px;
-
+    ${borderRadius};
     ${display};
     ${width};
     ${boxShadow};
@@ -71,6 +70,7 @@ const Card: React.FC<PropTypes> = ({ boxType, ...props }) => (
 
 Card.defaultProps = {
     p: 3,
+    borderRadius: 4,
     display: 'inline-flex',
     variant: BackgroundVariant.Secondary,
     boxType: BoxVariant.Filled

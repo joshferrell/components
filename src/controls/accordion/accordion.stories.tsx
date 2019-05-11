@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { storiesOf } from '@storybook/react';
+import { BackgroundVariant } from '../../lib/theme/variants';
 
 import { AccordionItem } from './elements';
 import Accordion from './accordion';
+import Card from '../../atoms/card';
 
 const items = [
     {
@@ -43,16 +45,16 @@ storiesOf('Controls/Accordion', module)
     .add('simple accordion', () => (
         <Accordion>
             {({ openIndexes, handleItemClick }) => (
-                <div>
+                <div style={{ width: '500px'}}>
                     {items.map((item, index) => {
                         const isOpen = openIndexes.includes(index);
                         return (
-                            <div>
-                                <button key={item.title} onClick={() => handleItemClick(index)}>
+                            <div key={item.title}>
+                                <Card display="block" variant={BackgroundVariant.Primary} borderRadius={0} onClick={() => handleItemClick(index)}>
                                     {item.title}
-                                </button>
+                                </Card>
                                 <AccordionItem pose={isOpen ? 'open' : 'closed'}>
-                                    {item.contents}
+                                    <Card>{item.contents}</Card>
                                 </AccordionItem>
                             </div>
                         );
