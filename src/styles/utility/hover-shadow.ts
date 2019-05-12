@@ -12,10 +12,7 @@ const scale = [
 const hoverShadow = style({
     prop: 'boxShadow',
     key: 'shadows',
-    transformValue: n => {
-        console.log('hover-value', n);
-        return (typeof n !== 'string') ? scale[n + 1] : n
-    },
+    transformValue: n => (typeof n !== 'string') ? scale[n + 1] : n,
     scale,
 });
 

@@ -12,9 +12,31 @@ export const AccordionItem = posed(BaseItem)({
     open: { height: 'auto' }
 });
 
-const TabItem = posed(BaseItem)({
-    leftOpen: {},
-    leftClosed: {},
+const enterTransition = { 
+    type: 'spring',
+    stiffness: 5000, 
+    damping: 2,
+    duration: 150
+};
+
+const exitTransition = { duration: 150 };
+
+const BaseTab = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+export const TabItem = posed(BaseTab)({
+    leftOpen: {
+        x: 0,
+        width: 'auto',
+        opacity: 1,
+    },
+    leftClosed: {
+        x: 50,
+        opacity: 0
+    },
     rightOpen: {},
     rightClosed: {},
     upOpen: {},

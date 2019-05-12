@@ -4,19 +4,18 @@ import { space, variant, width, display, borderRadius, boxShadow, BoxShadowProps
 
 import { hoverShadow } from '../../styles/utility';
 import { BackgroundVariant, BoxVariant } from '../../lib/theme/variants';
+import { isButton } from '../../lib/atoms/button';
 
 type PropTypes = SpaceProps & DisplayProps & WidthProps & BoxShadowProps & BorderRadiusProps & {
     variant?: BackgroundVariant;
     onClick?: () => void;
+    allowHover?: boolean;
     boxType?: BoxVariant;
     disabled?: boolean;
 };
 
-interface GetDepth {
-    (shadow: number | Array<number>): number | Array<number>;
-}
-
 const outlineStyle = variant({ key: 'outlineStyles' });
+const fillHoverStyle = variant({ key: 'solidStylesHover' });
 const fillStyle = variant({ key: 'solidStyles' });
 
 const disabled = css`
@@ -33,10 +32,15 @@ const hoverStyle = css<PropTypes>`
     transition: all .3s ease-in-out;
     &:hover, &:focus {
         ${hoverShadow};
+        ${fillHoverStyle};
+        outline: none;
     }  
 `;
 
 const baseStyle = css`
+    text-align: left;
+    box-sizing: border-box;
+
     ${borderRadius};
     ${display};
     ${width};
@@ -49,7 +53,7 @@ const BaseFill = styled.div<PropTypes>`
 
     ${baseStyle};
     ${fillStyle};
-    ${props => props.onClick && hoverStyle};
+    ${props => (props.onClick || props.allowHover) && hoverStyle};
     ${props => props.disabled && disabled};
 `;
 
@@ -58,18 +62,24 @@ const BaseOutline = styled.div<PropTypes>`
 
     ${baseStyle};
     ${outlineStyle};
-    ${props => props.onClick && hoverStyle};
+    ${props => (props.onClick || props.allowHover) && hoverStyle};
     ${props => props.disabled && disabled};
 `;
 
-const Card: React.FC<PropTypes> = ({ boxType, ...props }) => (
-    boxType === BoxVariant.Outline ? 
-        <BaseOutline {...props} /> :
-        <BaseFill {...props} />
-);
+// @ts-ignore
+const Card: React.FC<PropTypes> = React.forwardRef(({ boxType, ...props }, ref) => {
+    const type = isButton(props) ? 'button' : 'div';
+
+    return boxType === BoxVariant.Outline ?
+        // @ts-ignore
+        <BaseOutline {...props} as={type} ref={ref} /> :
+        // @ts-ignore
+        <BaseFill {...props} as={type} ref={ref} />;
+});
 
 Card.defaultProps = {
     p: 3,
+    width: '100%',
     borderRadius: 4,
     display: 'inline-flex',
     variant: BackgroundVariant.Secondary,
